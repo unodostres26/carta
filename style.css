@@ -100,128 +100,36 @@ body {
 
 /* Carta 1 - entra desde izquierda */
 
-.letter1 {
-    left: -15%;
-    top: 18%;
-
-    animation:
-        letterLeft 5.8s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: 0s;
-
-    z-index: 3;
-}
 
 
 /* Carta 2 - entra desde arriba */
 
-.letter2 {
-    left: 25%;
-    top: -15%;
-
-    animation:
-        letterTop 5.2s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: .25s;
-
-    z-index: 2;
-}
 
 
 /* Carta 3 - derecha */
 
-.letter3 {
-    right: -15%;
-    top: 30%;
-
-    animation:
-        letterRight 5.5s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: .45s;
-
-    z-index: 5;
-}
 
 
 /* Carta 4 - diagonal */
 
-.letter4 {
-    left: -15%;
-    top: 70%;
-
-    animation:
-        letterDiagonal 5.7s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: .7s;
-
-    z-index: 4;
-}
 
 
 /* Carta 5 - fondo */
 
-.letter5 {
-    left: 65%;
-    top: -15%;
 
-    transform: scale(.55);
-
-    animation:
-        letterBackground 6s ease-in-out forwards;
-
-    animation-delay: .9s;
-
-    z-index: 1;
-}
 
 
 /* Carta 6 */
 
-.letter6 {
-    left: 15%;
-    bottom: -15%;
-
-    animation:
-        letterBottom 5.6s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: 1.05s;
-
-    z-index: 6;
-}
 
 
 /* Carta 7 */
 
-.letter7 {
-    right: 25%;
-    bottom: -15%;
-
-    transform: scale(.7);
-
-    animation:
-        letterBottomRight 5.8s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: 1.3s;
-
-    z-index: 2;
-}
 
 
 /* Carta 8 */
 
-.letter8 {
-    right: -15%;
-    top: 5%;
 
-    transform: scale(.8);
-
-    animation:
-        letterRightHigh 5.4s cubic-bezier(.18,.72,.25,1) forwards;
-
-    animation-delay: 1.5s;
-
-    z-index: 7;
-}
 
 
 /* =========================================
