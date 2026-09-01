@@ -1366,3 +1366,189 @@ body {
     z-index: 1;
 }
 ```
+/* =========================================
+   AJUSTE FINAL PARA CELULAR
+========================================= */
+
+@media (max-width: 600px) {
+
+    /* ================================
+       FIRMA
+    ================================= */
+
+    .letter-signature {
+        position: relative;
+
+        margin-top: 25px;
+
+        min-height: 95px;
+
+        padding: 0 0 15px 78px;
+
+        text-align: right;
+
+        width: 100%;
+
+        overflow: visible;
+    }
+
+    .signature-name {
+        font-family:
+            "Snell Roundhand",
+            "Apple Chancery",
+            "Brush Script MT",
+            "Segoe Script",
+            cursive;
+
+        font-size: 14px !important;
+
+        line-height: 1;
+
+        font-style: italic;
+
+        margin: 0 !important;
+
+        padding: 0;
+
+        text-align: right;
+
+        white-space: nowrap;
+
+        transform: rotate(-2deg);
+
+        color: #302318;
+
+        position: relative;
+
+        z-index: 2;
+    }
+
+    .signature-title {
+        font-family:
+            Georgia,
+            "Times New Roman",
+            serif;
+
+        font-size: 7px !important;
+
+        line-height: 1.35;
+
+        margin: 5px 0 0 0 !important;
+
+        padding: 0;
+
+        text-align: right;
+
+        color: #59452b;
+
+        position: relative;
+
+        z-index: 2;
+
+        max-width: 155px;
+
+        margin-left: auto !important;
+    }
+
+    /* ================================
+       SELLO
+    ================================= */
+
+    .hogwarts-stamp {
+        position: absolute;
+
+        left: 0;
+
+        top: 5px;
+
+        width: 58px;
+
+        height: 58px;
+
+        border-radius: 50%;
+
+        border: 2px solid #741515;
+
+        color: #741515;
+
+        display: flex;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        align-items: center;
+
+        transform: rotate(-12deg);
+
+        opacity: .88;
+
+        box-shadow:
+            inset 0 0 0 2px rgba(116, 21, 21, .25);
+
+        z-index: 1;
+    }
+
+    .hogwarts-stamp::before {
+        width: 46px;
+
+        height: 46px;
+
+        border-radius: 50%;
+
+        border: 1px solid #741515;
+    }
+
+    .hogwarts-stamp span {
+        font-size: 20px;
+
+        line-height: 1;
+    }
+
+    .hogwarts-stamp small {
+        font-size: 4.5px;
+
+        letter-spacing: 1px;
+
+        margin-top: 3px;
+    }
+
+
+    /* ================================
+       NOMBRE DEL SOBRE
+    ================================= */
+
+    .address {
+        position: absolute;
+
+        left: 50%;
+
+        top: 57%;
+
+        transform: translateX(-50%);
+
+        width: 86%;
+
+        text-align: center;
+
+        color: #47361f;
+
+        font-size: 12px;
+
+        line-height: 1.45;
+
+        z-index: 6;
+
+        opacity: 1;
+    }
+
+    /* Evita que el sello tape el texto
+       mientras está cerrado */
+
+    .main-letter:not(.open) .address {
+        width: 86%;
+
+        max-width: 285px;
+    }
+
+}
