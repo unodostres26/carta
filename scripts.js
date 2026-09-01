@@ -1,5 +1,8 @@
 const mainLetter = document.getElementById("mainLetter");
 
-mainLetter.onclick = function() {
+alert("JavaScript funciona");
+
+mainLetter.addEventListener("click", function() {
+    alert("¡Hiciste clic!");
     mainLetter.classList.add("open");
-};
+});
