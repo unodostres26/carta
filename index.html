@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Una carta para ti</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PANTALLA INICIAL -->
+    <section id="inicio" class="pantalla">
+
+        <div class="contenido-inicio">
+            <p class="pequeno">UNA CARTA HA LLEGADO</p>
+
+            <h1>Hay algo<br>para ti...</h1>
+
+            <p class="descripcion">
+                Parece que una carta ha encontrado<br>
+                finalmente su destinataria.
+            </p>
+
+            <button id="comenzar">
+                ABRIR LA CARTA
+            </button>
+        </div>
+
+        <!-- Aquí aparecerán las cartas volando -->
+        <div id="cartas-volando"></div>
+
+    </section>
+
+
+    <!-- SOBRE -->
+    <section id="sobre" class="pantalla oculto">
+
+        <div class="sobre-container">
+
+            <div class="sobre">
+                <div class="solapa"></div>
+                <div class="papel"></div>
+
+                <div class="sello">
+                    H
+                </div>
+            </div>
+
+            <p class="texto-sobre">
+                Una carta para ti
+            </p>
+
+            <button id="abrir-sobre">
+                ABRIR
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- CARTA ABIERTA -->
+    <section id="carta" class="pantalla oculto">
+
+        <div class="carta-container">
+
+            <button id="cerrar-carta" aria-label="Cerrar carta">
+                ×
+            </button>
+
+            <div class="pergamino">
+
+                <div class="encabezado">
+
+                    <div class="escudo">
+                        H
+                    </div>
+
+                    <h2>
+                        HOGWARTS SCHOOL
+                    </h2>
+
+                    <h3>
+                        OF WITCHCRAFT AND WIZARDRY
+                    </h3>
+
+                    <p class="director">
+                        Headmaster: Albus Dumbledore
+                    </p>
+
+                    <p class="titulos">
+                        Order of Merlin, First Class<br>
+                        Grand Sorc., Chf. Warlock<br>
+                        Supreme Mugwump<br>
+                        International Confed. of Wizards
+                    </p>
+
+                </div>
+
+
+                <div class="linea"></div>
+
+
+                <div class="contenido-carta">
+
+                    <p>
+                        Estimada <strong id="nombre">[NOMBRE]</strong>:
+                    </p>
+
+                    <p>
+                        Tenemos el placer de informarte que has sido
+                        aceptada para formar parte de una institución
+                        muy especial.
+                    </p>
+
+                    <p>
+                        Tu lugar te espera y, a partir de este momento,
+                        comienza una pequeña aventura que hemos preparado
+                        especialmente para ti.
+                    </p>
+
+                    <p>
+                        El curso comienza el <strong>1 de septiembre</strong>.
+                        Esperamos que estés preparada.
+                    </p>
+
+                    <p class="despedida">
+                        Atentamente,
+                    </p>
+
+                    <div class="firma">
+                        Minerva McGonagall
+                    </div>
+
+                    <p class="cargo">
+                        Deputy Headmistress
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
