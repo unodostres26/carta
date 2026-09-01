@@ -101,35 +101,25 @@ body {
 /* Carta 1 - entra desde izquierda */
 
 
-
 /* Carta 2 - entra desde arriba */
-
 
 
 /* Carta 3 - derecha */
 
 
-
 /* Carta 4 - diagonal */
-
 
 
 /* Carta 5 - fondo */
 
 
-
-
 /* Carta 6 */
-
 
 
 /* Carta 7 */
 
 
-
 /* Carta 8 */
-
-
 
 
 /* =========================================
@@ -763,6 +753,7 @@ body {
     transition:
         opacity 1s ease 1s;
 }
+
 .paper h1 {
     text-align: center;
 
@@ -865,6 +856,102 @@ body {
 
 
 /* =========================================
+   BOTÓN CERRAR CARTA
+========================================= */
+
+.close-letter-container {
+    display: flex;
+    justify-content: center;
+
+    padding: 40px 0 25px;
+}
+
+#closeLetter {
+    background: transparent;
+
+    border: 1px solid #806b47;
+
+    color: #59452b;
+
+    padding: 10px 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 14px;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease,
+        opacity .3s ease;
+}
+
+#closeLetter:hover {
+    background: #59452b;
+
+    color: #f4e5be;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================
+   ANIMACIÓN DE CIERRE
+========================================= */
+
+.main-letter.closing {
+    cursor: default;
+}
+
+.main-letter.closing .paper {
+    transform:
+        translate(-50%, -50%)
+        scaleY(0);
+
+    opacity: 0;
+
+    transition:
+        transform 1.4s cubic-bezier(.6,0,.8,.2),
+        opacity .8s ease;
+}
+
+.main-letter.closing .paper-content {
+    opacity: 0;
+
+    transition:
+        opacity .3s ease;
+}
+
+.main-letter.closing .envelope-flap {
+    transform:
+        rotateX(0deg);
+
+    z-index: 4;
+
+    transition:
+        transform 1s ease;
+}
+
+.main-letter.closing .wax-seal {
+    opacity: 1;
+
+    transition:
+        opacity .8s ease 1s;
+}
+
+.main-letter.closing .address {
+    opacity: 1;
+
+    transition:
+        opacity .8s ease 1s;
+}
+
+
+/* =========================================
    INSTRUCCIÓN
 ========================================= */
 
@@ -930,26 +1017,26 @@ body {
     }
 
     .paper {
-    width: 300px;
-    min-height: 470px;
-}
+        width: 300px;
+        min-height: 470px;
+    }
 
-.main-letter.open .paper {
-    width: 92vw;
-    height: 90vh;
+    .main-letter.open .paper {
+        width: 92vw;
+        height: 90vh;
 
-    left: 50%;
-    top: 50%;
-    bottom: auto;
+        left: 50%;
+        top: 50%;
+        bottom: auto;
 
-    transform:
-        translate(-50%, -50%)
-        scaleY(1);
-}
+        transform:
+            translate(-50%, -50%)
+            scaleY(1);
+    }
 
-.paper-content {
-    padding: 35px 28px;
-}
+    .paper-content {
+        padding: 35px 28px;
+    }
 
     .paper h1 {
         font-size: 24px;
@@ -963,160 +1050,55 @@ body {
         width: 90px;
         height: 60px;
     }
-}
 
-@keyframes magicalFlight {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                -40vw,
-                50vh,
-                -500px
-            )
-            rotateZ(-45deg)
-            rotateY(30deg)
-            scale(var(--size));
+    .close-letter-container {
+        padding: 30px 0 20px;
     }
 
-    10% {
-        opacity: 1;
+    #closeLetter {
+        font-size: 13px;
+        padding: 9px 22px;
     }
 
-    30% {
-        transform:
-            translate3d(
-                20vw,
-                -20vh,
-                200px
-            )
-            rotateZ(25deg)
-            rotateY(-25deg)
-            scale(calc(var(--size) * 1.2));
+    .letter-signature {
+        margin-top: 30px;
+        min-height: 120px;
     }
 
-    50% {
-        transform:
-            translate3d(
-                -15vw,
-                25vh,
-                400px
-            )
-            rotateZ(-35deg)
-            rotateY(30deg)
-            scale(calc(var(--size) * 1.1));
+    .signature-name {
+        font-size: 27px;
+        margin-right: 10px;
     }
 
-    70% {
-        transform:
-            translate3d(
-                50vw,
-                -15vh,
-                150px
-            )
-            rotateZ(40deg)
-            rotateY(-30deg)
-            scale(var(--size));
+    .signature-title {
+        font-size: 11px;
+        margin-right: 10px;
     }
 
-    100% {
-        opacity: 0;
+    .hogwarts-stamp {
+        width: 70px;
+        height: 70px;
+        left: 0;
+    }
 
-        transform:
-            translate3d(
-                130vw,
-                40vh,
-                -500px
-            )
-            rotateZ(-55deg)
-            rotateY(40deg)
-            scale(calc(var(--size) * .6));
+    .hogwarts-stamp::before {
+        width: 56px;
+        height: 56px;
+    }
+
+    .hogwarts-stamp span {
+        font-size: 26px;
+    }
+
+    .hogwarts-stamp small {
+        font-size: 6px;
     }
 }
 
-@keyframes magicalFlight {
 
-    0% {
-
-        opacity: 0;
-
-        transform:
-            translate3d(
-                0,
-                0,
-                -500px
-            )
-            rotateZ(var(--rotation))
-            rotateY(30deg)
-            scale(var(--size));
-    }
-
-
-    10% {
-        opacity: 1;
-    }
-
-
-    30% {
-
-        transform:
-            translate3d(
-                25vw,
-                -10vh,
-                200px
-            )
-            rotateZ(calc(var(--rotation) + 30deg))
-            rotateY(-25deg)
-            scale(calc(var(--size) * 1.2));
-    }
-
-
-    50% {
-
-        transform:
-            translate3d(
-                -15vw,
-                20vh,
-                400px
-            )
-            rotateZ(calc(var(--rotation) - 40deg))
-            rotateY(30deg)
-            scale(calc(var(--size) * 1.1));
-    }
-
-
-    70% {
-
-        transform:
-            translate3d(
-                35vw,
-                -25vh,
-                150px
-            )
-            rotateZ(calc(var(--rotation) + 50deg))
-            rotateY(-30deg)
-            scale(var(--size));
-    }
-
-
-    100% {
-
-        opacity: 0;
-
-        transform:
-            translate3d(
-                -30vw,
-                40vh,
-                -500px
-            )
-            rotateZ(calc(var(--rotation) - 60deg))
-            rotateY(40deg)
-            scale(calc(var(--size) * .5));
-    }
-
-}
+/* =========================================
+   ANIMACIÓN CARTAS VOLADORAS
+========================================= */
 
 @keyframes magicalFlight {
 
@@ -1197,38 +1179,62 @@ body {
     }
 }
 
+
 /* =========================================
    FIRMA Y SELLO
 ========================================= */
 
 .letter-signature {
     position: relative;
+
     margin-top: 35px;
+
     min-height: 140px;
+
     text-align: right;
+
     padding-bottom: 20px;
 }
 
 .signature-name {
-    font-family: "Brush Script MT", "Segoe Script", cursive;
-    font-size: 32px;
+    font-family:
+        "Snell Roundhand",
+        "Apple Chancery",
+        "Brush Script MT",
+        "Segoe Script",
+        cursive;
+
+    font-size: 34px;
+
     font-style: italic;
+
     color: #302318;
+
     transform: rotate(-3deg);
+
     margin-right: 25px;
 }
 
 .signature-title {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 13px;
+
     line-height: 1.5;
+
     color: #59452b;
+
     margin-top: 6px;
+
     margin-right: 25px;
 }
 
 .hogwarts-stamp {
     position: absolute;
+
     left: 5px;
     top: 5px;
 
@@ -1236,16 +1242,21 @@ body {
     height: 85px;
 
     border-radius: 50%;
+
     border: 3px solid #741515;
 
     color: #741515;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
+
     align-items: center;
 
     transform: rotate(-12deg);
+
     opacity: .88;
 
     box-shadow:
@@ -1266,17 +1277,31 @@ body {
 }
 
 .hogwarts-stamp span {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 32px;
+
     font-weight: bold;
+
     line-height: 1;
+
     z-index: 1;
 }
 
 .hogwarts-stamp small {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+
     font-size: 7px;
+
     letter-spacing: 1.5px;
+
     margin-top: 3px;
+
     z-index: 1;
 }
