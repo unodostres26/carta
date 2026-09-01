@@ -56,17 +56,6 @@ body {
    CARTAS VOLANDO
 ========================================= */
 
-.flying-letters {
-    position: absolute;
-    inset: -20%;
-    pointer-events: none;
-
-    transform-style: preserve-3d;
-}
-
-
-/* Forma de las cartas */
-
 .flying-letter {
     position: absolute;
 
@@ -76,8 +65,8 @@ body {
     background:
         linear-gradient(
             145deg,
-            #f1dfb3 0%,
-            #d9bf88 100%
+            #f1dfb3,
+            #d9bf88
         );
 
     border: 1px solid rgba(112, 83, 42, 0.7);
@@ -85,8 +74,6 @@ body {
     box-shadow:
         0 8px 20px rgba(0, 0, 0, 0.45),
         inset 0 0 15px rgba(110, 75, 30, 0.18);
-
-    opacity: 0;
 
     display: flex;
     justify-content: center;
@@ -96,28 +83,88 @@ body {
 
     font-size: 32px;
 
-    transform-style: preserve-3d;
+    opacity: 0;
 
-    animation-fill-mode: forwards;
+    pointer-events: none;
+
+    animation-name: magicalFlight;
+    animation-timing-function: cubic-bezier(.2,.7,.2,1);
+    animation-fill-mode: both;
+
+    will-change: transform, opacity;
 }
 
+@keyframes magicalFlight {
 
-/* Pequeña marca de papel */
+    0% {
+        opacity: 0;
 
-.flying-letter::after {
-    content: "";
+        transform:
+            translate3d(
+                -30vw,
+                40vh,
+                -500px
+            )
+            rotateZ(-40deg)
+            rotateY(30deg)
+            scale(.45);
+    }
 
-    position: absolute;
+    12% {
+        opacity: 1;
+    }
 
-    left: 8%;
-    right: 8%;
-    top: 50%;
+    35% {
+        transform:
+            translate3d(
+                20vw,
+                -15vh,
+                200px
+            )
+            rotateZ(25deg)
+            rotateY(-20deg)
+            scale(1);
+    }
 
-    height: 1px;
+    55% {
+        transform:
+            translate3d(
+                -10vw,
+                20vh,
+                400px
+            )
+            rotateZ(-20deg)
+            rotateY(25deg)
+            scale(1.15);
+    }
 
-    background: rgba(100, 70, 35, 0.25);
+    75% {
+        opacity: 1;
 
-    transform: rotate(-5deg);
+        transform:
+            translate3d(
+                45vw,
+                -25vh,
+                100px
+            )
+            rotateZ(35deg)
+            rotateY(-30deg)
+            scale(.8);
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                120vw,
+                30vh,
+                -500px
+            )
+            rotateZ(-50deg)
+            rotateY(40deg)
+            scale(.3);
+    }
 }
 
 
