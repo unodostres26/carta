@@ -1085,3 +1085,82 @@ body {
     }
 
 }
+
+@keyframes magicalFlight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(0, 0, -600px)
+            rotateZ(var(--rotation))
+            rotateY(35deg)
+            scale(var(--size));
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    /* ENTRAN */
+
+    25% {
+        opacity: 1;
+
+        transform:
+            translate3d(
+                calc((50vw - var(--start-x)) * 0.55),
+                calc((50vh - var(--start-y)) * 0.55),
+                200px
+            )
+            rotateZ(calc(var(--rotation) + 25deg))
+            rotateY(-20deg)
+            scale(calc(var(--size) * 1.15));
+    }
+
+    /* PASAN POR EL CENTRO */
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate3d(
+                calc((50vw - var(--start-x))),
+                calc((50vh - var(--start-y))),
+                500px
+            )
+            rotateZ(calc(var(--rotation) + 90deg))
+            rotateY(15deg)
+            scale(calc(var(--size) * 1.25));
+    }
+
+    /* SALEN */
+
+    75% {
+        opacity: 1;
+
+        transform:
+            translate3d(
+                calc((var(--end-x) - var(--start-x)) * 0.75),
+                calc((var(--end-y) - var(--start-y)) * 0.75),
+                150px
+            )
+            rotateZ(calc(var(--rotation) + 150deg))
+            rotateY(-25deg)
+            scale(var(--size));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                calc(var(--end-x) - var(--start-x)),
+                calc(var(--end-y) - var(--start-y)),
+                -500px
+            )
+            rotateZ(calc(var(--rotation) + 220deg))
+            rotateY(40deg)
+            scale(calc(var(--size) * .45));
+    }
+}
