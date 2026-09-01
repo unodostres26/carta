@@ -1195,7 +1195,8 @@ body {
     .address {
         left: 50%;
 
-        top: 52%;
+        /* BAJADO PARA QUE NO LO CUBRA EL SELLO */
+        top: 57%;
 
         width: 88%;
 
