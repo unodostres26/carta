@@ -1060,38 +1060,60 @@ body {
         padding: 9px 22px;
     }
 
+
+    /* =========================================
+       FIRMA Y SELLO EN CELULAR
+    ========================================= */
+
     .letter-signature {
-        margin-top: 30px;
-        min-height: 120px;
+        margin-top: 25px;
+
+        min-height: 105px;
+
+        padding-bottom: 15px;
+
+        text-align: right;
     }
 
     .signature-name {
-        font-size: 27px;
-        margin-right: 10px;
+        font-size: 24px;
+
+        margin-right: 3px;
+
+        line-height: 1.1;
     }
 
     .signature-title {
-        font-size: 11px;
-        margin-right: 10px;
+        font-size: 10px;
+
+        line-height: 1.4;
+
+        margin-top: 4px;
+
+        margin-right: 3px;
     }
 
     .hogwarts-stamp {
-        width: 70px;
-        height: 70px;
+        width: 62px;
+        height: 62px;
+
         left: 0;
+        top: 5px;
     }
 
     .hogwarts-stamp::before {
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
     }
 
     .hogwarts-stamp span {
-        font-size: 26px;
+        font-size: 23px;
     }
 
     .hogwarts-stamp small {
-        font-size: 6px;
+        font-size: 5px;
+
+        letter-spacing: 1px;
     }
 }
 
