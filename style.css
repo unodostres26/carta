@@ -1,3 +1,4 @@
+```css
 * {
     margin: 0;
     padding: 0;
@@ -1062,58 +1063,95 @@ body {
 
 
     /* =========================================
-       FIRMA Y SELLO EN CELULAR
+       FIRMA Y SELLO - CELULAR
     ========================================= */
 
     .letter-signature {
-        margin-top: 25px;
+        position: relative;
+
+        width: 100%;
 
         min-height: 105px;
 
-        padding-bottom: 15px;
+        margin-top: 25px;
+
+        padding-bottom: 10px;
 
         text-align: right;
     }
 
+
+    /* La firma queda confinada a la zona derecha */
+
     .signature-name {
-        font-size: 24px;
+        display: block;
 
-        margin-right: 3px;
+        width: 55%;
 
-        line-height: 1.1;
+        margin-left: auto;
+        margin-right: 0;
+
+        font-size: 18px;
+
+        line-height: 1.05;
+
+        white-space: nowrap;
+
+        transform: rotate(-3deg);
     }
+
+
+    /* El cargo también queda confinado a la derecha */
 
     .signature-title {
-        font-size: 10px;
+        display: block;
 
-        line-height: 1.4;
+        width: 55%;
 
-        margin-top: 4px;
+        margin-left: auto;
+        margin-right: 0;
 
-        margin-right: 3px;
+        margin-top: 5px;
+
+        font-size: 8px;
+
+        line-height: 1.35;
     }
 
+
+    /* Sello */
+
     .hogwarts-stamp {
-        width: 62px;
-        height: 62px;
+        position: absolute;
 
         left: 0;
         top: 5px;
+
+        width: 58px;
+        height: 58px;
+
+        border-width: 2px;
+
+        transform: rotate(-12deg);
     }
 
     .hogwarts-stamp::before {
-        width: 48px;
-        height: 48px;
+        width: 45px;
+        height: 45px;
+
+        border-width: 1px;
     }
 
     .hogwarts-stamp span {
-        font-size: 23px;
+        font-size: 21px;
     }
 
     .hogwarts-stamp small {
-        font-size: 5px;
+        font-size: 4px;
 
-        letter-spacing: 1px;
+        letter-spacing: .7px;
+
+        margin-top: 2px;
     }
 }
 
@@ -1327,3 +1365,4 @@ body {
 
     z-index: 1;
 }
+```
