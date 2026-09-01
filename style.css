@@ -1,4 +1,3 @@
-```css
 * {
     margin: 0;
     padding: 0;
@@ -21,7 +20,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
     perspective: 1000px;
 }
 
@@ -1001,247 +999,8 @@ body {
 
 
 /* =========================================
-   MÓVIL
-========================================= */
-
-@media (max-width: 600px) {
-
-    .main-letter {
-        width: 330px;
-        height: 230px;
-    }
-
-    .envelope-flap {
-        border-left-width: 163px;
-        border-right-width: 163px;
-        border-top-width: 120px;
-    }
-
-    .paper {
-        width: 300px;
-        min-height: 470px;
-    }
-
-    .main-letter.open .paper {
-        width: 92vw;
-        height: 90vh;
-
-        left: 50%;
-        top: 50%;
-        bottom: auto;
-
-        transform:
-            translate(-50%, -50%)
-            scaleY(1);
-    }
-
-    .paper-content {
-        padding: 35px 28px;
-    }
-
-    .paper h1 {
-        font-size: 24px;
-    }
-
-    .paper p {
-        font-size: 14px;
-    }
-
-    .flying-letter {
-        width: 90px;
-        height: 60px;
-    }
-
-    .close-letter-container {
-        padding: 30px 0 20px;
-    }
-
-    #closeLetter {
-        font-size: 13px;
-        padding: 9px 22px;
-    }
-
-
-    /* =========================================
-       FIRMA Y SELLO - CELULAR
-    ========================================= */
-
-    .letter-signature {
-        position: relative;
-
-        width: 100%;
-
-        min-height: 105px;
-
-        margin-top: 25px;
-
-        padding-bottom: 10px;
-
-        text-align: right;
-    }
-
-
-    /* La firma queda confinada a la zona derecha */
-
-    .signature-name {
-        display: block;
-
-        width: 55%;
-
-        margin-left: auto;
-        margin-right: 0;
-
-        font-size: 18px;
-
-        line-height: 1.05;
-
-        white-space: nowrap;
-
-        transform: rotate(-3deg);
-    }
-
-
-    /* El cargo también queda confinado a la derecha */
-
-    .signature-title {
-        display: block;
-
-        width: 55%;
-
-        margin-left: auto;
-        margin-right: 0;
-
-        margin-top: 5px;
-
-        font-size: 8px;
-
-        line-height: 1.35;
-    }
-
-
-    /* Sello */
-
-    .hogwarts-stamp {
-        position: absolute;
-
-        left: 0;
-        top: 5px;
-
-        width: 58px;
-        height: 58px;
-
-        border-width: 2px;
-
-        transform: rotate(-12deg);
-    }
-
-    .hogwarts-stamp::before {
-        width: 45px;
-        height: 45px;
-
-        border-width: 1px;
-    }
-
-    .hogwarts-stamp span {
-        font-size: 21px;
-    }
-
-    .hogwarts-stamp small {
-        font-size: 4px;
-
-        letter-spacing: .7px;
-
-        margin-top: 2px;
-    }
-}
-
-
-/* =========================================
-   ANIMACIÓN CARTAS VOLADORAS
-========================================= */
-
-@keyframes magicalFlight {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate3d(0, 0, -600px)
-            rotateZ(var(--rotation))
-            rotateY(35deg)
-            scale(var(--size));
-    }
-
-    10% {
-        opacity: 1;
-    }
-
-    /* ENTRAN */
-
-    25% {
-        opacity: 1;
-
-        transform:
-            translate3d(
-                calc((50vw - var(--start-x)) * 0.55),
-                calc((50vh - var(--start-y)) * 0.55),
-                200px
-            )
-            rotateZ(calc(var(--rotation) + 25deg))
-            rotateY(-20deg)
-            scale(calc(var(--size) * 1.15));
-    }
-
-    /* PASAN POR EL CENTRO */
-
-    50% {
-        opacity: 1;
-
-        transform:
-            translate3d(
-                calc((50vw - var(--start-x))),
-                calc((50vh - var(--start-y))),
-                500px
-            )
-            rotateZ(calc(var(--rotation) + 90deg))
-            rotateY(15deg)
-            scale(calc(var(--size) * 1.25));
-    }
-
-    /* SALEN */
-
-    75% {
-        opacity: 1;
-
-        transform:
-            translate3d(
-                calc((var(--end-x) - var(--start-x)) * 0.75),
-                calc((var(--end-y) - var(--start-y)) * 0.75),
-                150px
-            )
-            rotateZ(calc(var(--rotation) + 150deg))
-            rotateY(-25deg)
-            scale(var(--size));
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                calc(var(--end-x) - var(--start-x)),
-                calc(var(--end-y) - var(--start-y)),
-                -500px
-            )
-            rotateZ(calc(var(--rotation) + 220deg))
-            rotateY(40deg)
-            scale(calc(var(--size) * .45));
-    }
-}
-
-
-/* =========================================
    FIRMA Y SELLO
+   ESTILO GENERAL - LAPTOP
 ========================================= */
 
 .letter-signature {
@@ -1365,34 +1124,135 @@ body {
 
     z-index: 1;
 }
-```
+
+
 /* =========================================
-   AJUSTE FINAL PARA CELULAR
+   MÓVIL
 ========================================= */
 
 @media (max-width: 600px) {
 
-    /* ================================
-       FIRMA
-    ================================= */
+    .main-letter {
+        width: 330px;
+        height: 230px;
+    }
+
+    .envelope-flap {
+        border-left-width: 163px;
+        border-right-width: 163px;
+        border-top-width: 120px;
+    }
+
+    .paper {
+        width: 300px;
+        min-height: 470px;
+    }
+
+    .main-letter.open .paper {
+        width: 92vw;
+        height: 90vh;
+
+        left: 50%;
+        top: 50%;
+        bottom: auto;
+
+        transform:
+            translate(-50%, -50%)
+            scaleY(1);
+    }
+
+    .paper-content {
+        padding: 35px 28px;
+    }
+
+    .paper h1 {
+        font-size: 24px;
+    }
+
+    .paper p {
+        font-size: 14px;
+    }
+
+    .flying-letter {
+        width: 90px;
+        height: 60px;
+    }
+
+    .close-letter-container {
+        padding: 30px 0 20px;
+    }
+
+    #closeLetter {
+        font-size: 13px;
+        padding: 9px 22px;
+    }
+
+
+    /* =========================================
+       SOBRE - TEXTO PARA EIMMY
+    ========================================= */
+
+    .address {
+        left: 50%;
+
+        top: 52%;
+
+        width: 88%;
+
+        max-width: 285px;
+
+        transform: translateX(-50%);
+
+        text-align: center;
+
+        font-size: 11px;
+
+        line-height: 1.25;
+
+        padding: 0;
+
+        margin: 0;
+
+        z-index: 6;
+    }
+
+
+    /* =========================================
+       FIRMA - CELULAR
+    ========================================= */
 
     .letter-signature {
         position: relative;
 
+        width: 100%;
+
+        min-height: 90px;
+
         margin-top: 25px;
 
-        min-height: 95px;
-
-        padding: 0 0 15px 78px;
+        padding: 0 0 10px 75px;
 
         text-align: right;
 
-        width: 100%;
-
-        overflow: visible;
+        overflow: hidden;
     }
 
-    .signature-name {
+
+    /* =========================================
+       NOMBRE DE MINERVA
+    ========================================= */
+
+    .letter-signature .signature-name {
+        display: block;
+
+        width: 135px;
+
+        max-width: 135px;
+
+        margin: 0 0 0 auto !important;
+
+        padding: 0;
+
         font-family:
             "Snell Roundhand",
             "Apple Chancery",
@@ -1400,19 +1260,17 @@ body {
             "Segoe Script",
             cursive;
 
-        font-size: 14px !important;
+        font-size: 11px !important;
 
         line-height: 1;
 
         font-style: italic;
 
-        margin: 0 !important;
-
-        padding: 0;
-
         text-align: right;
 
         white-space: nowrap;
+
+        overflow: hidden;
 
         transform: rotate(-2deg);
 
@@ -1423,7 +1281,22 @@ body {
         z-index: 2;
     }
 
-    .signature-title {
+
+    /* =========================================
+       CARGO DE MINERVA
+    ========================================= */
+
+    .letter-signature .signature-title {
+        display: block;
+
+        width: 135px;
+
+        max-width: 135px;
+
+        margin: 5px 0 0 auto !important;
+
+        padding: 0;
+
         font-family:
             Georgia,
             "Times New Roman",
@@ -1431,11 +1304,7 @@ body {
 
         font-size: 7px !important;
 
-        line-height: 1.35;
-
-        margin: 5px 0 0 0 !important;
-
-        padding: 0;
+        line-height: 1.25;
 
         text-align: right;
 
@@ -1444,111 +1313,140 @@ body {
         position: relative;
 
         z-index: 2;
-
-        max-width: 155px;
-
-        margin-left: auto !important;
     }
 
-    /* ================================
-       SELLO
-    ================================= */
 
-    .hogwarts-stamp {
+    /* =========================================
+       SELLO DE HOGWARTS - CELULAR
+    ========================================= */
+
+    .letter-signature .hogwarts-stamp {
         position: absolute;
 
         left: 0;
 
-        top: 5px;
+        top: 2px;
 
-        width: 58px;
+        width: 55px;
 
-        height: 58px;
+        height: 55px;
 
         border-radius: 50%;
 
         border: 2px solid #741515;
 
-        color: #741515;
-
-        display: flex;
-
-        flex-direction: column;
-
-        justify-content: center;
-
-        align-items: center;
-
         transform: rotate(-12deg);
-
-        opacity: .88;
-
-        box-shadow:
-            inset 0 0 0 2px rgba(116, 21, 21, .25);
 
         z-index: 1;
     }
 
-    .hogwarts-stamp::before {
-        width: 46px;
+    .letter-signature .hogwarts-stamp::before {
+        content: "";
 
-        height: 46px;
+        position: absolute;
+
+        width: 43px;
+
+        height: 43px;
 
         border-radius: 50%;
 
         border: 1px solid #741515;
     }
 
-    .hogwarts-stamp span {
-        font-size: 20px;
-
-        line-height: 1;
+    .letter-signature .hogwarts-stamp span {
+        font-size: 19px;
     }
 
-    .hogwarts-stamp small {
-        font-size: 4.5px;
+    .letter-signature .hogwarts-stamp small {
+        font-size: 4px;
 
-        letter-spacing: 1px;
+        letter-spacing: .7px;
 
-        margin-top: 3px;
+        margin-top: 2px;
+    }
+}
+
+
+/* =========================================
+   ANIMACIÓN CARTAS VOLADORAS
+========================================= */
+
+@keyframes magicalFlight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(0, 0, -600px)
+            rotateZ(var(--rotation))
+            rotateY(35deg)
+            scale(var(--size));
     }
 
-
-    /* ================================
-       NOMBRE DEL SOBRE
-    ================================= */
-
-    .address {
-        position: absolute;
-
-        left: 50%;
-
-        top: 57%;
-
-        transform: translateX(-50%);
-
-        width: 86%;
-
-        text-align: center;
-
-        color: #47361f;
-
-        font-size: 12px;
-
-        line-height: 1.45;
-
-        z-index: 6;
-
+    10% {
         opacity: 1;
     }
 
-    /* Evita que el sello tape el texto
-       mientras está cerrado */
+    /* ENTRAN */
 
-    .main-letter:not(.open) .address {
-        width: 86%;
+    25% {
+        opacity: 1;
 
-        max-width: 285px;
+        transform:
+            translate3d(
+                calc((50vw - var(--start-x)) * 0.55),
+                calc((50vh - var(--start-y)) * 0.55),
+                200px
+            )
+            rotateZ(calc(var(--rotation) + 25deg))
+            rotateY(-20deg)
+            scale(calc(var(--size) * 1.15));
     }
 
+    /* PASAN POR EL CENTRO */
+
+    50% {
+        opacity: 1;
+
+        transform:
+            translate3d(
+                calc((50vw - var(--start-x))),
+                calc((50vh - var(--start-y))),
+                500px
+            )
+            rotateZ(calc(var(--rotation) + 90deg))
+            rotateY(15deg)
+            scale(calc(var(--size) * 1.25));
+    }
+
+    /* SALEN */
+
+    75% {
+        opacity: 1;
+
+        transform:
+            translate3d(
+                calc((var(--end-x) - var(--start-x)) * 0.75),
+                calc((var(--end-y) - var(--start-y)) * 0.75),
+                150px
+            )
+            rotateZ(calc(var(--rotation) + 150deg))
+            rotateY(-25deg)
+            scale(var(--size));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                calc(var(--end-x) - var(--start-x)),
+                calc(var(--end-y) - var(--start-y)),
+                -500px
+            )
+            rotateZ(calc(var(--rotation) + 220deg))
+            rotateY(40deg)
+            scale(calc(var(--size) * .45));
+    }
 }
