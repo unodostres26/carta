@@ -1,9 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Una carta para ti</title>
 
     <link rel="stylesheet" href="style.css">
@@ -11,132 +11,73 @@
 
 <body>
 
-    <!-- PANTALLA INICIAL -->
-    <section id="inicio" class="pantalla">
+    <div class="scene">
 
-        <div class="contenido-inicio">
-            <p class="pequeno">UNA CARTA HA LLEGADO</p>
-
-            <h1>Hay algo<br>para ti...</h1>
-
-            <p class="descripcion">
-                Parece que una carta ha encontrado<br>
-                finalmente su destinataria.
-            </p>
-
-            <button id="comenzar">
-                ABRIR LA CARTA
-            </button>
+        <!-- Cartas que vuelan al inicio -->
+        <div class="flying-letters">
+            <div class="flying-letter letter1">✉</div>
+            <div class="flying-letter letter2">✉</div>
+            <div class="flying-letter letter3">✉</div>
+            <div class="flying-letter letter4">✉</div>
+            <div class="flying-letter letter5">✉</div>
+            <div class="flying-letter letter6">✉</div>
+            <div class="flying-letter letter7">✉</div>
+            <div class="flying-letter letter8">✉</div>
         </div>
 
-        <!-- Aquí aparecerán las cartas volando -->
-        <div id="cartas-volando"></div>
+        <!-- Carta principal -->
+        <div class="main-letter" id="mainLetter">
 
-    </section>
+            <div class="envelope">
 
+                <div class="envelope-flap"></div>
 
-    <!-- SOBRE -->
-    <section id="sobre" class="pantalla oculto">
-
-        <div class="sobre-container">
-
-            <div class="sobre">
-                <div class="solapa"></div>
-                <div class="papel"></div>
-
-                <div class="sello">
+                <div class="wax-seal">
                     H
                 </div>
-            </div>
 
-            <p class="texto-sobre">
-                Una carta para ti
-            </p>
-
-            <button id="abrir-sobre">
-                ABRIR
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- CARTA ABIERTA -->
-    <section id="carta" class="pantalla oculto">
-
-        <div class="carta-container">
-
-            <button id="cerrar-carta" aria-label="Cerrar carta">
-                ×
-            </button>
-
-            <div class="pergamino">
-
-                <div class="encabezado">
-
-                    <div class="escudo">
-                        H
+                <div class="envelope-front">
+                    <div class="address">
+                        <p>Para:</p>
+                        <strong>Tu nombre aquí</strong>
+                        <p>Hogwarts School of Witchcraft and Wizardry</p>
                     </div>
-
-                    <h2>
-                        HOGWARTS SCHOOL
-                    </h2>
-
-                    <h3>
-                        OF WITCHCRAFT AND WIZARDRY
-                    </h3>
-
-                    <p class="director">
-                        Headmaster: Albus Dumbledore
-                    </p>
-
-                    <p class="titulos">
-                        Order of Merlin, First Class<br>
-                        Grand Sorc., Chf. Warlock<br>
-                        Supreme Mugwump<br>
-                        International Confed. of Wizards
-                    </p>
-
                 </div>
 
+            </div>
 
-                <div class="linea"></div>
+            <!-- Hoja que aparece al abrir -->
+            <div class="paper">
 
+                <div class="paper-content">
 
-                <div class="contenido-carta">
+                    <h1>Hogwarts School</h1>
 
-                    <p>
-                        Estimada <strong id="nombre">[NOMBRE]</strong>:
+                    <p class="subtitle">
+                        School of Witchcraft and Wizardry
                     </p>
 
-                    <p>
-                        Tenemos el placer de informarte que has sido
-                        aceptada para formar parte de una institución
-                        muy especial.
-                    </p>
+                    <div class="line"></div>
 
                     <p>
-                        Tu lugar te espera y, a partir de este momento,
-                        comienza una pequeña aventura que hemos preparado
-                        especialmente para ti.
+                        Querida ________,
                     </p>
 
                     <p>
-                        El curso comienza el <strong>1 de septiembre</strong>.
-                        Esperamos que estés preparada.
+                        Aquí empieza tu carta...
                     </p>
 
-                    <p class="despedida">
-                        Atentamente,
+                    <p>
+                        Escribe aquí todo lo que quieras decirle.
+                        Puedes hacerla tan larga como quieras.
                     </p>
 
-                    <div class="firma">
-                        Minerva McGonagall
-                    </div>
+                    <p>
+                        Con mucho cariño,
+                    </p>
 
-                    <p class="cargo">
-                        Deputy Headmistress
+                    <p class="signature">
+                        Tu nombre
                     </p>
 
                 </div>
@@ -145,10 +86,14 @@
 
         </div>
 
-    </section>
+        <div class="instruction" id="instruction">
+            Haz clic en la carta
+        </div>
 
+    </div>
 
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 
 </body>
 </html>
+```
