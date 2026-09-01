@@ -2,12 +2,7 @@ const mainLetter = document.getElementById("mainLetter");
 const instruction = document.getElementById("instruction");
 const flyingLetters = document.querySelector(".flying-letters");
 
-const totalLetters = 120;
-
-
-// ==========================================
-// CREAR CARTAS DESDE DIFERENTES DIRECCIONES
-// ==========================================
+const totalLetters = 100;
 
 for (let i = 0; i < totalLetters; i++) {
 
@@ -16,66 +11,65 @@ for (let i = 0; i < totalLetters; i++) {
     letter.className = "flying-letter";
     letter.textContent = "✉";
 
-    // Elegir aleatoriamente desde dónde entra
+    // Dirección desde la que entra
     const direction = Math.floor(Math.random() * 4);
 
     let startX;
     let startY;
+    let endX;
+    let endY;
 
     if (direction === 0) {
-        // IZQUIERDA
+        // IZQUIERDA → CENTRO → DERECHA
         startX = -20;
-        startY = Math.random() * 100;
+        startY = 20 + Math.random() * 60;
+        endX = 120;
+        endY = startY + (Math.random() * 30 - 15);
 
     } else if (direction === 1) {
-        // DERECHA
+        // DERECHA → CENTRO → IZQUIERDA
         startX = 120;
-        startY = Math.random() * 100;
+        startY = 20 + Math.random() * 60;
+        endX = -20;
+        endY = startY + (Math.random() * 30 - 15);
 
     } else if (direction === 2) {
-        // ARRIBA
-        startX = Math.random() * 100;
+        // ARRIBA → CENTRO → ABAJO
+        startX = 20 + Math.random() * 60;
         startY = -20;
+        endX = startX + (Math.random() * 30 - 15);
+        endY = 120;
 
     } else {
-        // ABAJO
-        startX = Math.random() * 100;
+        // ABAJO → CENTRO → ARRIBA
+        startX = 20 + Math.random() * 60;
         startY = 120;
+        endX = startX + (Math.random() * 30 - 15);
+        endY = -20;
     }
 
     letter.style.left = startX + "vw";
     letter.style.top = startY + "vh";
 
+    // Guardar destino
+    letter.style.setProperty("--end-x", endX + "vw");
+    letter.style.setProperty("--end-y", endY + "vh");
 
-    // Tamaño aleatorio
-    const size = 0.35 + Math.random() * 1.1;
-
+    // Tamaños variados
+    const size = 0.4 + Math.random() * 0.9;
     letter.style.setProperty("--size", size);
 
-
-    // Velocidad aleatoria
-    const duration = 3.5 + Math.random() * 4;
-
-    letter.style.animationDuration =
-        duration + "s";
-
+    // Velocidad
+    const duration = 3.5 + Math.random() * 2.5;
+    letter.style.animationDuration = duration + "s";
 
     // Aparición escalonada
-    const delay = Math.random() * 5;
+    const delay = Math.random() * 4;
+    letter.style.animationDelay = delay + "s";
 
-    letter.style.animationDelay =
-        delay + "s";
-
-
-    // Rotación inicial aleatoria
-    const rotation =
-        Math.random() * 80 - 40;
-
-    letter.style.setProperty(
-        "--rotation",
-        rotation + "deg"
-    );
-
+    // Rotación
+    const rotation = Math.random() * 80 - 40;
+    letter.style.setProperty("--rotation", rotation + "deg");
 
     flyingLetters.appendChild(letter);
 }
