@@ -1,6 +1,7 @@
 const mainLetter = document.getElementById("mainLetter");
 const instruction = document.getElementById("instruction");
 const flyingLetters = document.querySelector(".flying-letters");
+const closeLetter = document.getElementById("closeLetter");
 
 const totalLetters = 120;
 
@@ -146,12 +147,64 @@ for (let i = 0; i < totalLetters; i++) {
 // ABRIR CARTA PRINCIPAL
 // ==========================================
 
-mainLetter.addEventListener("click", function () {
+mainLetter.addEventListener("click", function (event) {
+
+    // Si se hizo clic en el botón de cerrar,
+    // no ejecutar la apertura.
+    if (event.target === closeLetter) {
+        return;
+    }
+
+    // No abrir si ya está abierta o cerrándose.
+    if (
+        mainLetter.classList.contains("open") ||
+        mainLetter.classList.contains("closing")
+    ) {
+        return;
+    }
 
     mainLetter.classList.add("open");
 
     if (instruction) {
         instruction.style.display = "none";
     }
+
+});
+
+
+// ==========================================
+// CERRAR CARTA
+// ==========================================
+
+closeLetter.addEventListener("click", function (event) {
+
+    // Evita que el clic vuelva a activar
+    // el evento de la carta principal.
+    event.stopPropagation();
+
+    // Evita cerrar dos veces.
+    if (mainLetter.classList.contains("closing")) {
+        return;
+    }
+
+    // Comenzar animación de cierre.
+    mainLetter.classList.add("closing");
+
+
+    // Esperar a que termine la animación.
+    setTimeout(function () {
+
+        // Volver al estado original.
+        mainLetter.classList.remove("closing");
+        mainLetter.classList.remove("open");
+
+        // Llevar el papel nuevamente al inicio.
+        const paper = mainLetter.querySelector(".paper");
+
+        if (paper) {
+            paper.scrollTop = 0;
+        }
+
+    }, 1500);
 
 });
