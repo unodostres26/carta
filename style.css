@@ -1196,3 +1196,87 @@ body {
             scale(calc(var(--size) * .45));
     }
 }
+
+/* =========================================
+   FIRMA Y SELLO
+========================================= */
+
+.letter-signature {
+    position: relative;
+    margin-top: 35px;
+    min-height: 140px;
+    text-align: right;
+    padding-bottom: 20px;
+}
+
+.signature-name {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 32px;
+    font-style: italic;
+    color: #302318;
+    transform: rotate(-3deg);
+    margin-right: 25px;
+}
+
+.signature-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #59452b;
+    margin-top: 6px;
+    margin-right: 25px;
+}
+
+.hogwarts-stamp {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+
+    width: 85px;
+    height: 85px;
+
+    border-radius: 50%;
+    border: 3px solid #741515;
+
+    color: #741515;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transform: rotate(-12deg);
+    opacity: .88;
+
+    box-shadow:
+        inset 0 0 0 2px rgba(116, 21, 21, .25);
+}
+
+.hogwarts-stamp::before {
+    content: "";
+
+    position: absolute;
+
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    border: 1px solid #741515;
+}
+
+.hogwarts-stamp span {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 1;
+    z-index: 1;
+}
+
+.hogwarts-stamp small {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+    z-index: 1;
+}
