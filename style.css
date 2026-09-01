@@ -1,361 +1,501 @@
+```css
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background: #080706;
-    color: white;
-    font-family: Georgia, serif;
     overflow: hidden;
+    background:
+        radial-gradient(circle at center, #202735 0%, #0c1018 70%);
+    font-family: Georgia, "Times New Roman", serif;
+    color: #2b2118;
 }
 
-.pantalla {
-    position: fixed;
-    inset: 0;
-    width: 100%;
+.scene {
+    width: 100vw;
     height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   CARTAS VOLANDO
+========================= */
+
+.flying-letters {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.flying-letter {
+    position: absolute;
+    width: 95px;
+    height: 65px;
+    background: #e8d6a9;
+    border: 2px solid #b99b63;
+    box-shadow: 0 10px 25px rgba(0,0,0,.4);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background:
-        radial-gradient(circle at center, #302516 0%, #100d09 45%, #030303 100%);
+    font-size: 35px;
+    color: #7b1717;
+
+    animation: fly 5s ease-in-out forwards;
+    opacity: 0;
 }
 
-.oculto {
-    display: none;
+.letter1 {
+    left: 5%;
+    top: 15%;
+    animation-delay: .1s;
+    transform: rotate(-25deg);
 }
 
-
-/* INICIO */
-
-.contenido-inicio {
-    position: relative;
-    z-index: 10;
-    text-align: center;
+.letter2 {
+    left: 25%;
+    top: 5%;
+    animation-delay: .3s;
+    transform: rotate(20deg);
 }
 
-.pequeno {
-    font-size: 12px;
-    letter-spacing: 5px;
-    opacity: 0.7;
-    margin-bottom: 25px;
+.letter3 {
+    right: 15%;
+    top: 10%;
+    animation-delay: .5s;
+    transform: rotate(-15deg);
 }
 
-h1 {
-    font-size: clamp(50px, 10vw, 100px);
-    font-weight: normal;
-    line-height: 0.95;
-    letter-spacing: 2px;
+.letter4 {
+    right: 5%;
+    top: 35%;
+    animation-delay: .7s;
+    transform: rotate(25deg);
 }
 
-.descripcion {
-    margin-top: 30px;
-    line-height: 1.7;
-    opacity: 0.75;
+.letter5 {
+    left: 10%;
+    bottom: 20%;
+    animation-delay: .9s;
+    transform: rotate(15deg);
 }
 
-button {
-    margin-top: 35px;
-    padding: 15px 35px;
-
-    background: transparent;
-    color: #e6c878;
-
-    border: 1px solid #a78a43;
-    border-radius: 3px;
-
-    font-family: Georgia, serif;
-    letter-spacing: 3px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
+.letter6 {
+    left: 40%;
+    bottom: 5%;
+    animation-delay: 1.1s;
+    transform: rotate(-20deg);
 }
 
-button:hover {
-    background: #e6c878;
-    color: #17120b;
+.letter7 {
+    right: 30%;
+    bottom: 15%;
+    animation-delay: 1.3s;
+    transform: rotate(15deg);
 }
 
-
-/* CARTAS VOLANDO */
-
-#cartas-volando {
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
+.letter8 {
+    right: 3%;
+    bottom: 5%;
+    animation-delay: 1.5s;
+    transform: rotate(-25deg);
 }
 
-.carta-volando {
-    position: absolute;
-
-    width: 90px;
-    height: 55px;
-
-    background: #d8c59b;
-
-    border: 1px solid #8c7952;
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-
-    animation: volar linear forwards;
-}
-
-.carta-volando::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-
-    width: 0;
-    height: 0;
-
-    border-left: 44px solid transparent;
-    border-right: 44px solid transparent;
-    border-top: 27px solid #b8a37a;
-}
-
-@keyframes volar {
+@keyframes fly {
 
     0% {
-        transform:
-            translate(-100px, 100vh)
-            rotate(0deg);
         opacity: 0;
+        transform: translateY(120vh) rotate(0deg) scale(.5);
     }
 
-    15% {
+    20% {
+        opacity: 1;
+    }
+
+    70% {
         opacity: 1;
     }
 
     100% {
-        transform:
-            translate(110vw, -100px)
-            rotate(360deg);
         opacity: 0;
+        transform:
+            translate(
+                calc((50vw - 50%) * .5),
+                calc((50vh - 50%) * .5)
+            )
+            rotate(360deg)
+            scale(.4);
     }
 }
 
 
-/* SOBRE */
+/* =========================
+   CARTA PRINCIPAL
+========================= */
 
-.sobre-container {
-    text-align: center;
-}
-
-.sobre {
+.main-letter {
     position: relative;
+    width: 430px;
+    height: 300px;
 
-    width: 330px;
-    height: 220px;
+    cursor: pointer;
 
-    background: #cbb586;
+    opacity: 0;
+    transform: scale(.7) translateY(80px);
 
-    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+    animation: appear 2s ease forwards;
+    animation-delay: 4.2s;
 
-    margin: auto;
+    transition: transform 1s ease;
 }
 
-.solapa {
+@keyframes appear {
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+
+}
+
+.main-letter:hover {
+    transform: scale(1.03);
+}
+
+
+/* =========================
+   SOBRE
+========================= */
+
+.envelope {
     position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ead8aa,
+            #d7bd82
+        );
+
+    border: 2px solid #a98a54;
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.55),
+        inset 0 0 25px rgba(92,60,20,.25);
+
+    overflow: hidden;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            transparent 50%,
+            rgba(110,80,35,.15) 50%
+        );
+}
+
+
+/* Triángulo superior */
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
 
     width: 0;
     height: 0;
 
-    border-left: 165px solid transparent;
-    border-right: 165px solid transparent;
-    border-top: 120px solid #a99467;
+    border-left: 213px solid transparent;
+    border-right: 213px solid transparent;
+    border-top: 155px solid #c9aa70;
 
-    z-index: 3;
+    z-index: 4;
+
+    filter: drop-shadow(0 3px 3px rgba(0,0,0,.25));
+
+    transform-origin: top;
+    transition: transform 1.2s ease;
 }
 
-.papel {
+
+/* =========================
+   SELLO
+========================= */
+
+.wax-seal {
     position: absolute;
 
-    width: 280px;
-    height: 180px;
-
-    left: 25px;
-    top: 20px;
-
-    background: #eee0bd;
-
-    z-index: 1;
-}
-
-.sello {
-    position: absolute;
-
-    z-index: 5;
-
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    width: 65px;
-    height: 65px;
+    width: 70px;
+    height: 70px;
 
     border-radius: 50%;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #641b18;
-
-    border: 4px solid #47100e;
-
-    color: #d8bd78;
-
-    font-size: 30px;
-
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.texto-sobre {
-    margin-top: 30px;
-    opacity: 0.8;
-}
-
-
-/* PERGAMINO */
-
-.carta-container {
-    position: relative;
-
-    width: min(850px, 92vw);
-    max-height: 92vh;
-
-    overflow-y: auto;
-}
-
-.pergamino {
     background:
-        radial-gradient(circle, #f3e3b9 0%, #d9c18d 100%);
+        radial-gradient(
+            circle at 35% 30%,
+            #b72d2d,
+            #691010
+        );
 
-    color: #20180e;
+    color: #e6c77c;
 
-    padding: 55px 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 35px;
+    font-weight: bold;
+
+    left: 50%;
+    top: 45%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 10;
 
     box-shadow:
-        0 20px 80px rgba(0,0,0,0.8);
+        0 5px 10px rgba(0,0,0,.4),
+        inset 0 0 8px rgba(255,255,255,.15);
 
-    border: 1px solid #8d7748;
+    transition: opacity .5s ease;
 }
 
-.encabezado {
+
+/* =========================
+   DIRECCIÓN
+========================= */
+
+.address {
+    position: absolute;
+
+    left: 50%;
+    top: 58%;
+
+    transform: translateX(-50%);
+
+    width: 70%;
+
     text-align: center;
-}
 
-.escudo {
-    width: 75px;
-    height: 75px;
+    color: #47361f;
 
-    margin: 0 auto 20px;
+    font-size: 15px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border: 3px solid #292014;
-
-    font-size: 40px;
-}
-
-.encabezado h2 {
-    font-size: 28px;
-    letter-spacing: 3px;
-}
-
-.encabezado h3 {
-    font-size: 17px;
-    letter-spacing: 4px;
-    margin-top: 5px;
-}
-
-.director {
-    margin-top: 25px;
-}
-
-.titulos {
-    margin-top: 8px;
-    font-size: 13px;
-    font-style: italic;
     line-height: 1.5;
 }
 
-.linea {
-    height: 1px;
-    background: #75603b;
-    margin: 30px 0;
-}
 
-.contenido-carta {
-    font-size: 18px;
-    line-height: 1.8;
-}
+/* =========================
+   PAPEL
+========================= */
 
-.contenido-carta p {
-    margin-bottom: 22px;
-}
-
-.despedida {
-    margin-top: 40px;
-    margin-bottom: 5px !important;
-}
-
-.firma {
-    font-family: cursive;
-    font-size: 34px;
-}
-
-.cargo {
-    font-size: 14px;
-    font-style: italic;
-}
-
-#cerrar-carta {
+.paper {
     position: absolute;
-    right: 10px;
-    top: 5px;
 
-    border: none;
+    width: 390px;
+    min-height: 520px;
 
-    color: #e6c878;
+    left: 50%;
+    bottom: 0;
+
+    transform:
+        translate(-50%, 0)
+        scaleY(0);
+
+    transform-origin: bottom;
+
+    background:
+        linear-gradient(
+            rgba(244,229,190,.96),
+            rgba(225,204,155,.96)
+        );
+
+    border: 1px solid #b89b65;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.5);
+
+    z-index: 2;
+
+    transition:
+        transform 1.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.paper-content {
+    padding: 45px 35px;
+
+    opacity: 0;
+
+    transition: opacity 1s ease 1s;
+}
+
+.paper h1 {
+    text-align: center;
 
     font-size: 30px;
 
-    margin: 0;
+    color: #6b1515;
+
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    text-align: center;
+
+    font-size: 13px;
+
+    margin-top: 5px;
+
+    color: #59452b;
+}
+
+.line {
+    height: 1px;
+
+    background: #8d7348;
+
+    margin: 20px 0;
+}
+
+.paper p {
+    margin: 18px 0;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+.signature {
+    text-align: right;
+
+    font-family: cursive;
+
+    font-size: 22px !important;
 }
 
 
-/* CELULAR */
+/* =========================
+   ABRIR CARTA
+========================= */
+
+.main-letter.open {
+    cursor: default;
+}
+
+.main-letter.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.main-letter.open .wax-seal {
+    opacity: 0;
+}
+
+.main-letter.open .paper {
+    transform:
+        translate(-50%, -180px)
+        scaleY(1);
+}
+
+.main-letter.open .paper-content {
+    opacity: 1;
+}
+
+.main-letter.open .address {
+    opacity: 0;
+}
+
+
+/* =========================
+   TEXTO INSTRUCCIÓN
+========================= */
+
+.instruction {
+
+    position: absolute;
+
+    bottom: 7%;
+
+    color: #d9c48c;
+
+    font-size: 16px;
+
+    letter-spacing: 2px;
+
+    opacity: 0;
+
+    animation:
+        instructionAppear 1s ease forwards,
+        pulse 2s infinite;
+
+    animation-delay: 5s, 6s;
+}
+
+@keyframes instructionAppear {
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+@keyframes pulse {
+
+    0%,100% {
+        opacity: .5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
 
 @media (max-width: 600px) {
 
-    .pergamino {
-        padding: 35px 25px;
+    .main-letter {
+        width: 330px;
+        height: 230px;
     }
 
-    .encabezado h2 {
-        font-size: 21px;
+    .envelope-flap {
+        border-left-width: 163px;
+        border-right-width: 163px;
+        border-top-width: 120px;
     }
 
-    .encabezado h3 {
-        font-size: 12px;
+    .paper {
+        width: 300px;
+        min-height: 470px;
     }
 
-    .contenido-carta {
-        font-size: 16px;
+    .paper-content {
+        padding: 30px 25px;
     }
 
-    .sobre {
-        transform: scale(0.85);
+    .paper h1 {
+        font-size: 24px;
     }
+
+    .paper p {
+        font-size: 14px;
+    }
+
 }
+```
