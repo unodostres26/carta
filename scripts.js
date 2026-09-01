@@ -1,4 +1,4 @@
-```javascript
+
 const mainLetter = document.getElementById("mainLetter");
 const instruction = document.getElementById("instruction");
 
