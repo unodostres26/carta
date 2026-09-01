@@ -1,0 +1,361 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #080706;
+    color: white;
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.pantalla {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(circle at center, #302516 0%, #100d09 45%, #030303 100%);
+}
+
+.oculto {
+    display: none;
+}
+
+
+/* INICIO */
+
+.contenido-inicio {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.pequeno {
+    font-size: 12px;
+    letter-spacing: 5px;
+    opacity: 0.7;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(50px, 10vw, 100px);
+    font-weight: normal;
+    line-height: 0.95;
+    letter-spacing: 2px;
+}
+
+.descripcion {
+    margin-top: 30px;
+    line-height: 1.7;
+    opacity: 0.75;
+}
+
+button {
+    margin-top: 35px;
+    padding: 15px 35px;
+
+    background: transparent;
+    color: #e6c878;
+
+    border: 1px solid #a78a43;
+    border-radius: 3px;
+
+    font-family: Georgia, serif;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #e6c878;
+    color: #17120b;
+}
+
+
+/* CARTAS VOLANDO */
+
+#cartas-volando {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.carta-volando {
+    position: absolute;
+
+    width: 90px;
+    height: 55px;
+
+    background: #d8c59b;
+
+    border: 1px solid #8c7952;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+
+    animation: volar linear forwards;
+}
+
+.carta-volando::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    width: 0;
+    height: 0;
+
+    border-left: 44px solid transparent;
+    border-right: 44px solid transparent;
+    border-top: 27px solid #b8a37a;
+}
+
+@keyframes volar {
+
+    0% {
+        transform:
+            translate(-100px, 100vh)
+            rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(110vw, -100px)
+            rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
+/* SOBRE */
+
+.sobre-container {
+    text-align: center;
+}
+
+.sobre {
+    position: relative;
+
+    width: 330px;
+    height: 220px;
+
+    background: #cbb586;
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+
+    margin: auto;
+}
+
+.solapa {
+    position: absolute;
+
+    width: 0;
+    height: 0;
+
+    border-left: 165px solid transparent;
+    border-right: 165px solid transparent;
+    border-top: 120px solid #a99467;
+
+    z-index: 3;
+}
+
+.papel {
+    position: absolute;
+
+    width: 280px;
+    height: 180px;
+
+    left: 25px;
+    top: 20px;
+
+    background: #eee0bd;
+
+    z-index: 1;
+}
+
+.sello {
+    position: absolute;
+
+    z-index: 5;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #641b18;
+
+    border: 4px solid #47100e;
+
+    color: #d8bd78;
+
+    font-size: 30px;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.texto-sobre {
+    margin-top: 30px;
+    opacity: 0.8;
+}
+
+
+/* PERGAMINO */
+
+.carta-container {
+    position: relative;
+
+    width: min(850px, 92vw);
+    max-height: 92vh;
+
+    overflow-y: auto;
+}
+
+.pergamino {
+    background:
+        radial-gradient(circle, #f3e3b9 0%, #d9c18d 100%);
+
+    color: #20180e;
+
+    padding: 55px 70px;
+
+    box-shadow:
+        0 20px 80px rgba(0,0,0,0.8);
+
+    border: 1px solid #8d7748;
+}
+
+.encabezado {
+    text-align: center;
+}
+
+.escudo {
+    width: 75px;
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 3px solid #292014;
+
+    font-size: 40px;
+}
+
+.encabezado h2 {
+    font-size: 28px;
+    letter-spacing: 3px;
+}
+
+.encabezado h3 {
+    font-size: 17px;
+    letter-spacing: 4px;
+    margin-top: 5px;
+}
+
+.director {
+    margin-top: 25px;
+}
+
+.titulos {
+    margin-top: 8px;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.linea {
+    height: 1px;
+    background: #75603b;
+    margin: 30px 0;
+}
+
+.contenido-carta {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.contenido-carta p {
+    margin-bottom: 22px;
+}
+
+.despedida {
+    margin-top: 40px;
+    margin-bottom: 5px !important;
+}
+
+.firma {
+    font-family: cursive;
+    font-size: 34px;
+}
+
+.cargo {
+    font-size: 14px;
+    font-style: italic;
+}
+
+#cerrar-carta {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+
+    border: none;
+
+    color: #e6c878;
+
+    font-size: 30px;
+
+    margin: 0;
+}
+
+
+/* CELULAR */
+
+@media (max-width: 600px) {
+
+    .pergamino {
+        padding: 35px 25px;
+    }
+
+    .encabezado h2 {
+        font-size: 21px;
+    }
+
+    .encabezado h3 {
+        font-size: 12px;
+    }
+
+    .contenido-carta {
+        font-size: 16px;
+    }
+
+    .sobre {
+        transform: scale(0.85);
+    }
+}
