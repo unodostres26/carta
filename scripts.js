@@ -2,7 +2,7 @@ const mainLetter = document.getElementById("mainLetter");
 const instruction = document.getElementById("instruction");
 const flyingLetters = document.querySelector(".flying-letters");
 
-const totalLetters = 100;
+const totalLetters = 120;
 
 for (let i = 0; i < totalLetters; i++) {
 
@@ -11,7 +11,10 @@ for (let i = 0; i < totalLetters; i++) {
     letter.className = "flying-letter";
     letter.textContent = "✉";
 
-    // Dirección desde la que entra
+    // ==========================================
+    // ELEGIR DIRECCIÓN
+    // ==========================================
+
     const direction = Math.floor(Math.random() * 4);
 
     let startX;
@@ -20,63 +23,127 @@ for (let i = 0; i < totalLetters; i++) {
     let endY;
 
     if (direction === 0) {
+
         // IZQUIERDA → CENTRO → DERECHA
-        startX = -20;
-        startY = 20 + Math.random() * 60;
-        endX = 120;
+        startX = -25;
+        startY = Math.random() * 100;
+
+        endX = 125;
         endY = startY + (Math.random() * 30 - 15);
 
     } else if (direction === 1) {
+
         // DERECHA → CENTRO → IZQUIERDA
-        startX = 120;
-        startY = 20 + Math.random() * 60;
-        endX = -20;
+        startX = 125;
+        startY = Math.random() * 100;
+
+        endX = -25;
         endY = startY + (Math.random() * 30 - 15);
 
     } else if (direction === 2) {
+
         // ARRIBA → CENTRO → ABAJO
-        startX = 20 + Math.random() * 60;
-        startY = -20;
+        startX = Math.random() * 100;
+        startY = -25;
+
         endX = startX + (Math.random() * 30 - 15);
-        endY = 120;
+        endY = 125;
 
     } else {
+
         // ABAJO → CENTRO → ARRIBA
-        startX = 20 + Math.random() * 60;
-        startY = 120;
+        startX = Math.random() * 100;
+        startY = 125;
+
         endX = startX + (Math.random() * 30 - 15);
-        endY = -20;
+        endY = -25;
     }
+
+
+    // ==========================================
+    // POSICIÓN INICIAL
+    // ==========================================
 
     letter.style.left = startX + "vw";
     letter.style.top = startY + "vh";
 
-    // Guardar destino
-    letter.style.setProperty("--end-x", endX + "vw");
-    letter.style.setProperty("--end-y", endY + "vh");
 
-    // Tamaños variados
-    const size = 0.4 + Math.random() * 0.9;
-    letter.style.setProperty("--size", size);
+    // ==========================================
+    // GUARDAR INICIO Y FINAL
+    // ==========================================
 
-    // Velocidad
-    const duration = 3.5 + Math.random() * 2.5;
-    letter.style.animationDuration = duration + "s";
+    letter.style.setProperty(
+        "--start-x",
+        startX + "vw"
+    );
 
-    // Aparición escalonada
+    letter.style.setProperty(
+        "--start-y",
+        startY + "vh"
+    );
+
+    letter.style.setProperty(
+        "--end-x",
+        endX + "vw"
+    );
+
+    letter.style.setProperty(
+        "--end-y",
+        endY + "vh"
+    );
+
+
+    // ==========================================
+    // TAMAÑO
+    // ==========================================
+
+    const size = 0.35 + Math.random() * 1.1;
+
+    letter.style.setProperty(
+        "--size",
+        size
+    );
+
+
+    // ==========================================
+    // VELOCIDAD
+    // ==========================================
+
+    const duration = 3.5 + Math.random() * 3;
+
+    letter.style.animationDuration =
+        duration + "s";
+
+
+    // ==========================================
+    // APARICIÓN
+    // ==========================================
+
     const delay = Math.random() * 4;
-    letter.style.animationDelay = delay + "s";
 
-    // Rotación
-    const rotation = Math.random() * 80 - 40;
-    letter.style.setProperty("--rotation", rotation + "deg");
+    letter.style.animationDelay =
+        delay + "s";
+
+
+    // ==========================================
+    // ROTACIÓN
+    // ==========================================
+
+    const rotation =
+        Math.random() * 80 - 40;
+
+    letter.style.setProperty(
+        "--rotation",
+        rotation + "deg"
+    );
+
 
     flyingLetters.appendChild(letter);
 }
 
 
 // ==========================================
-// ABRIR CARTA
+// ABRIR CARTA PRINCIPAL
 // ==========================================
 
 mainLetter.addEventListener("click", function () {
