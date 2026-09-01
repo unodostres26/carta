@@ -2,42 +2,88 @@ const mainLetter = document.getElementById("mainLetter");
 const instruction = document.getElementById("instruction");
 const flyingLetters = document.querySelector(".flying-letters");
 
-const totalLetters = 80;
+const totalLetters = 120;
+
+
+// ==========================================
+// CREAR CARTAS DESDE DIFERENTES DIRECCIONES
+// ==========================================
 
 for (let i = 0; i < totalLetters; i++) {
 
     const letter = document.createElement("div");
 
-    letter.classList.add("flying-letter");
-    letter.innerHTML = "✉";
+    letter.className = "flying-letter";
+    letter.textContent = "✉";
 
-    // Posición inicial aleatoria
-    letter.style.left = (Math.random() * 120 - 10) + "vw";
-    letter.style.top = (Math.random() * 120 - 10) + "vh";
+    // Elegir aleatoriamente desde dónde entra
+    const direction = Math.floor(Math.random() * 4);
 
-    // Tamaños diferentes
+    let startX;
+    let startY;
+
+    if (direction === 0) {
+        // IZQUIERDA
+        startX = -20;
+        startY = Math.random() * 100;
+
+    } else if (direction === 1) {
+        // DERECHA
+        startX = 120;
+        startY = Math.random() * 100;
+
+    } else if (direction === 2) {
+        // ARRIBA
+        startX = Math.random() * 100;
+        startY = -20;
+
+    } else {
+        // ABAJO
+        startX = Math.random() * 100;
+        startY = 120;
+    }
+
+    letter.style.left = startX + "vw";
+    letter.style.top = startY + "vh";
+
+
+    // Tamaño aleatorio
     const size = 0.35 + Math.random() * 1.1;
 
-    // Velocidad diferente
+    letter.style.setProperty("--size", size);
+
+
+    // Velocidad aleatoria
     const duration = 3.5 + Math.random() * 4;
 
-    // Aparición progresiva
-    const delay = Math.random() * 4;
+    letter.style.animationDuration =
+        duration + "s";
 
-    // Rotación diferente
-    const rotation = Math.random() * 80 - 40;
 
-    letter.style.setProperty("--size", size);
-    letter.style.setProperty("--rotation", rotation + "deg");
+    // Aparición escalonada
+    const delay = Math.random() * 5;
 
-    letter.style.animationDuration = duration + "s";
-    letter.style.animationDelay = delay + "s";
+    letter.style.animationDelay =
+        delay + "s";
+
+
+    // Rotación inicial aleatoria
+    const rotation =
+        Math.random() * 80 - 40;
+
+    letter.style.setProperty(
+        "--rotation",
+        rotation + "deg"
+    );
+
 
     flyingLetters.appendChild(letter);
 }
 
 
+// ==========================================
 // ABRIR CARTA
+// ==========================================
 
 mainLetter.addEventListener("click", function () {
 
