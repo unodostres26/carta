@@ -1,8 +1,10 @@
 const mainLetter = document.getElementById("mainLetter");
+const instruction = document.getElementById("instruction");
 
-alert("JavaScript funciona");
-
-mainLetter.addEventListener("click", function() {
-    alert("¡Hiciste clic!");
+mainLetter.addEventListener("click", function () {
     mainLetter.classList.add("open");
+
+    if (instruction) {
+        instruction.style.display = "none";
+    }
 });
