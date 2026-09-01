@@ -62,12 +62,11 @@ body {
     width: 125px;
     height: 82px;
 
-    background:
-        linear-gradient(
-            145deg,
-            #f1dfb3,
-            #d9bf88
-        );
+    background: linear-gradient(
+        145deg,
+        #f1dfb3,
+        #d9bf88
+    );
 
     border: 1px solid rgba(112, 83, 42, 0.7);
 
@@ -92,79 +91,6 @@ body {
     animation-fill-mode: both;
 
     will-change: transform, opacity;
-}
-
-@keyframes magicalFlight {
-
-    0% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                -30vw,
-                40vh,
-                -500px
-            )
-            rotateZ(-40deg)
-            rotateY(30deg)
-            scale(.45);
-    }
-
-    12% {
-        opacity: 1;
-    }
-
-    35% {
-        transform:
-            translate3d(
-                20vw,
-                -15vh,
-                200px
-            )
-            rotateZ(25deg)
-            rotateY(-20deg)
-            scale(1);
-    }
-
-    55% {
-        transform:
-            translate3d(
-                -10vw,
-                20vh,
-                400px
-            )
-            rotateZ(-20deg)
-            rotateY(25deg)
-            scale(1.15);
-    }
-
-    75% {
-        opacity: 1;
-
-        transform:
-            translate3d(
-                45vw,
-                -25vh,
-                100px
-            )
-            rotateZ(35deg)
-            rotateY(-30deg)
-            scale(.8);
-    }
-
-    100% {
-        opacity: 0;
-
-        transform:
-            translate3d(
-                120vw,
-                30vh,
-                -500px
-            )
-            rotateZ(-50deg)
-            rotateY(40deg)
-            scale(.3);
-    }
 }
 
 
