@@ -1024,3 +1024,74 @@ body {
         height: 60px;
     }
 }
+
+@keyframes magicalFlight {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                -40vw,
+                50vh,
+                -500px
+            )
+            rotateZ(-45deg)
+            rotateY(30deg)
+            scale(var(--size));
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        transform:
+            translate3d(
+                20vw,
+                -20vh,
+                200px
+            )
+            rotateZ(25deg)
+            rotateY(-25deg)
+            scale(calc(var(--size) * 1.2));
+    }
+
+    50% {
+        transform:
+            translate3d(
+                -15vw,
+                25vh,
+                400px
+            )
+            rotateZ(-35deg)
+            rotateY(30deg)
+            scale(calc(var(--size) * 1.1));
+    }
+
+    70% {
+        transform:
+            translate3d(
+                50vw,
+                -15vh,
+                150px
+            )
+            rotateZ(40deg)
+            rotateY(-30deg)
+            scale(var(--size));
+    }
+
+    100% {
+        opacity: 0;
+
+        transform:
+            translate3d(
+                130vw,
+                40vh,
+                -500px
+            )
+            rotateZ(-55deg)
+            rotateY(40deg)
+            scale(calc(var(--size) * .6));
+    }
+}
