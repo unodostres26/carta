@@ -396,6 +396,7 @@ body {
 
 .main-letter.open .envelope-flap {
     transform: rotateX(180deg);
+    z-index: 1;
 }
 
 .main-letter.open .wax-seal {
@@ -404,8 +405,9 @@ body {
 
 .main-letter.open .paper {
     transform:
-        translate(-50%, -180px)
+        translate(-50%, -230px)
         scaleY(1);
+    z-index: 20;
 }
 
 .main-letter.open .paper-content {
